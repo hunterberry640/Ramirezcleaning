@@ -75,7 +75,7 @@
           <span>|</span>
           <a href="/Ramirezcleaning/es/" class="lang-active">ES</a>
         </li>
-        <li><a href="#cta-banner" class="btn btn-primary btn-sm">Obtener Cotización Gratis</a></li>
+        <li><a href="#cta-banner" class="btn btn-primary btn-sm" id="nav-quote-btn">Obtener Cotización Gratis</a></li>
       </ul>
     </div>
   </nav>
@@ -89,7 +89,7 @@
         <p class="hero-label">Servicios de Limpieza Profesional</p>
         <h1 class="hero-title">Un Hogar Impecable,<br />Siempre</h1>
         <p class="hero-subtitle">Limpieza confiable y exhaustiva para hogares y negocios. Déjeme manejar el desorden para que usted pueda disfrutar del resto.</p>
-        <a href="#cta-banner" class="btn btn-accent btn-lg">Obtener Cotización Gratis</a>
+        <a href="#cta-banner" class="btn btn-accent btn-lg" id="hero-quote-btn">Obtener Cotización Gratis</a>
       </div>
       <div class="hero-scroll-indicator" aria-hidden="true">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
@@ -411,7 +411,7 @@
         <p>Reserve su primera limpieza hoy y vea la diferencia Ramirez.</p>
         <div class="cta-banner-actions">
           <a href="tel:+15551234567" class="btn btn-white btn-lg">Llamar (555) 123-4567</a>
-          <a href="#" class="btn btn-accent btn-lg">Reservar Ahora</a>
+          <a href="#cta-banner" class="btn btn-accent btn-lg" id="book-now-btn">Reservar Ahora</a>
         </div>
       </div>
     </section>
@@ -448,6 +448,59 @@
       </div>
     </div>
   </footer>
+
+  <!-- ========== BOOKING MODAL ========== -->
+  <div class="modal" id="booking-modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
+    <div class="modal-overlay" id="modal-overlay"></div>
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close" aria-label="Cerrar modal">&times;</button>
+      <h2 id="modal-title">Obtener Cotización Gratis</h2>
+      <p class="modal-subtitle">Complete el formulario a continuación y me pondré en contacto pronto.</p>
+      <form id="booking-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="b9473551-0ce8-4305-ac72-44fcfaaf8df9">
+        <input type="hidden" name="subject" value="Nueva Solicitud de Servicio de Limpieza">
+        <input type="hidden" name="from_name" value="Sitio Web de Ramirez Cleaning Services">
+        
+        <div class="form-group">
+          <label for="name">Nombre *</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Correo Electrónico *</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="phone">Teléfono</label>
+          <input type="tel" id="phone" name="phone">
+        </div>
+        
+        <div class="form-group">
+          <label for="service">Tipo de Servicio</label>
+          <select id="service" name="service">
+            <option value="">Seleccione un servicio...</option>
+            <option value="Limpieza Regular">Limpieza Regular</option>
+            <option value="Limpieza Profunda">Limpieza Profunda</option>
+            <option value="Mudanza Entrada/Salida">Mudanza Entrada/Salida</option>
+            <option value="Comercial">Comercial</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="message">Mensaje *</label>
+          <textarea id="message" name="message" rows="4" placeholder="Cuénteme sobre su espacio, solicitudes especiales o cualquier pregunta..." required></textarea>
+        </div>
+        
+        <div class="form-group">
+          <input type="checkbox" id="honeypot" name="botcheck" style="display: none;">
+        </div>
+        
+        <button type="submit" class="btn btn-accent btn-lg">Enviar Solicitud</button>
+        <div id="form-status" class="form-status"></div>
+      </form>
+    </div>
+  </div>
 
   <script type="module" src="../src/js/main.js"></script>
 </body>

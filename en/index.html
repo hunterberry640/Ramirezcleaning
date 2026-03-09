@@ -75,7 +75,7 @@
           <span>|</span>
           <a href="/Ramirezcleaning/es/">ES</a>
         </li>
-        <li><a href="#cta-banner" class="btn btn-primary btn-sm">Get a Free Quote</a></li>
+        <li><a href="#cta-banner" class="btn btn-primary btn-sm" id="nav-quote-btn">Get a Free Quote</a></li>
       </ul>
     </div>
   </nav>
@@ -89,7 +89,7 @@
         <p class="hero-label">Professional Cleaning Services</p>
         <h1 class="hero-title">A Spotless Home,<br />Every Time</h1>
         <p class="hero-subtitle">Reliable, thorough cleaning for homes and businesses. Let me handle the mess so you can enjoy the rest.</p>
-        <a href="#cta-banner" class="btn btn-accent btn-lg">Get a Free Quote</a>
+        <a href="#cta-banner" class="btn btn-accent btn-lg" id="hero-quote-btn">Get a Free Quote</a>
       </div>
       <div class="hero-scroll-indicator" aria-hidden="true">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
@@ -411,7 +411,7 @@
         <p>Book your first cleaning today and see the Ramirez difference.</p>
         <div class="cta-banner-actions">
           <a href="tel:+15551234567" class="btn btn-white btn-lg">Call (555) 123-4567</a>
-          <a href="#" class="btn btn-accent btn-lg">Book Now</a>
+          <a href="#cta-banner" class="btn btn-accent btn-lg" id="book-now-btn">Book Now</a>
         </div>
       </div>
     </section>
@@ -448,6 +448,59 @@
       </div>
     </div>
   </footer>
+
+  <!-- ========== BOOKING MODAL ========== -->
+  <div class="modal" id="booking-modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
+    <div class="modal-overlay" id="modal-overlay"></div>
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close" aria-label="Close modal">&times;</button>
+      <h2 id="modal-title">Get a Free Quote</h2>
+      <p class="modal-subtitle">Fill out the form below and I'll get back to you soon!</p>
+      <form id="booking-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="b9473551-0ce8-4305-ac72-44fcfaaf8df9">
+        <input type="hidden" name="subject" value="New Cleaning Service Request">
+        <input type="hidden" name="from_name" value="Ramirez Cleaning Services Website">
+        
+        <div class="form-group">
+          <label for="name">Name *</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone">
+        </div>
+        
+        <div class="form-group">
+          <label for="service">Service Type</label>
+          <select id="service" name="service">
+            <option value="">Select a service...</option>
+            <option value="Regular Cleaning">Regular Cleaning</option>
+            <option value="Deep Clean">Deep Clean</option>
+            <option value="Move-In/Out">Move-In/Out</option>
+            <option value="Commercial">Commercial</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="message">Message *</label>
+          <textarea id="message" name="message" rows="4" placeholder="Tell me about your space, special requests, or any questions..." required></textarea>
+        </div>
+        
+        <div class="form-group">
+          <input type="checkbox" id="honeypot" name="botcheck" style="display: none;">
+        </div>
+        
+        <button type="submit" class="btn btn-accent btn-lg">Send Request</button>
+        <div id="form-status" class="form-status"></div>
+      </form>
+    </div>
+  </div>
 
   <script type="module" src="../src/js/main.js"></script>
 </body>
