@@ -7,13 +7,20 @@
   <title>Ramirez Cleaning Services</title>
   <script>
     // Detect browser language and redirect accordingly
-    const lang = navigator.language.startsWith('es') ? 'es' : 'en';
-    // Handle GitHub Pages subdirectory (repo name in path)
-    const pathname = window.location.pathname;
-    // Remove trailing slash and index.html if present
-    const basePath = pathname.replace(/\/index\.html$/, '').replace(/\/$/, '') || '';
-    window.location.replace(`${basePath}/${lang}/`);
+    (function() {
+      const lang = navigator.language.startsWith('es') ? 'es' : 'en';
+      const pathname = window.location.pathname;
+      // Clean up pathname: remove index.html and trailing slashes
+      let cleanPath = pathname.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      // If we're at root (/), cleanPath will be empty
+      // If we're at /Ramirezcleaning/, cleanPath will be /Ramirezcleaning
+      const targetUrl = cleanPath + '/' + lang + '/';
+      window.location.replace(targetUrl);
+    })();
   </script>
+  <noscript>
+    <meta http-equiv="refresh" content="0; url=en/">
+  </noscript>
 </head>
 <body>
   <p>Redirecting...</p>
