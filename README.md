@@ -1,16 +1,60 @@
-# React + Vite
+# Ramirez Cleaning Services
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bilingual (English/Spanish) landing page for Ramirez Cleaning Services - SEO optimized static site.
 
-Currently, two official plugins are available:
+## Structure
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- `/en/` - English version
+- `/es/` - Spanish version
+- `/src/` - CSS, JavaScript, and assets
+- Root `index.html` - Language redirect page
 
-## React Compiler
+## Development
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm install
+npm run dev
+```
 
-## Expanding the ESLint configuration
+## Build
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm run build
+```
+
+Build output goes to `/dist` directory.
+
+## GitHub Pages Setup
+
+This repository is configured to work with GitHub Pages:
+
+1. **Go to your repository settings** on GitHub
+2. Navigate to **Pages** (under Settings)
+3. Under **Source**, select:
+   - **Branch**: `main`
+   - **Folder**: `/ (root)`
+4. Click **Save**
+
+The site will be available at: `https://hunterberry640.github.io/Ramirezcleaning/`
+
+### Important Files for GitHub Pages
+
+- `.nojekyll` - Prevents Jekyll processing (required for subdirectories and certain file types)
+- The site uses relative paths (`../src/css/styles.css`) which work correctly when served from root
+
+### Custom Domain
+
+If you have a custom domain (e.g., `ramirezcleaningservices.com`):
+
+1. Add a `CNAME` file in the root with your domain name
+2. Configure DNS records as per GitHub Pages documentation
+3. Update canonical URLs and Open Graph URLs in `/en/index.html` and `/es/index.html`
+
+## Features
+
+- SEO optimized with meta tags, Open Graph, and JSON-LD structured data
+- Bilingual support (English/Spanish) with proper hreflang tags
+- Mobile-responsive design
+- Scroll-reveal animations
+- Before/After image slider
+- Service area map/list
