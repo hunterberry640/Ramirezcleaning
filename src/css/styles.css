@@ -1032,6 +1032,18 @@ ul, ol { list-style: none; }
 }
 
 /* ===== FORM STYLES ===== */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 480px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
 .form-group {
   margin-bottom: 24px;
 }
@@ -1122,7 +1134,7 @@ ul, ol { list-style: none; }
   }
 
   .footer-inner {
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
   }
 }
 

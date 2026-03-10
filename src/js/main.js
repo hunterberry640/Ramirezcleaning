@@ -87,6 +87,46 @@ if (gallerySplideEl && typeof Splide !== 'undefined') {
   }).mount();
 }
 
+// Date & time picker restrictions
+const preferredDate = document.getElementById('preferred-date');
+const preferredTime = document.getElementById('preferred-time');
+
+if (preferredDate) {
+  const today = new Date().toISOString().split('T')[0];
+  preferredDate.setAttribute('min', today);
+
+  preferredDate.addEventListener('change', () => {
+    if (!preferredTime) return;
+    const selected = new Date(preferredDate.value + 'T00:00:00');
+    const day = selected.getDay();
+
+    if (day === 0) {
+      const isSpanish = document.documentElement.lang === 'es';
+      alert(isSpanish ? 'Domingos estamos cerrados. Por favor elija otro día.' : 'We are closed on Sundays. Please choose another day.');
+      preferredDate.value = '';
+      return;
+    }
+
+    const allOptions = preferredTime.querySelectorAll('option');
+    allOptions.forEach(opt => {
+      opt.hidden = false;
+      opt.disabled = false;
+    });
+
+    if (day === 6) {
+      allOptions.forEach(opt => {
+        if (opt.value === '4:30 PM' || opt.value === '5:00 PM') {
+          opt.hidden = true;
+          opt.disabled = true;
+        }
+      });
+      if (preferredTime.value === '4:30 PM' || preferredTime.value === '5:00 PM') {
+        preferredTime.value = '';
+      }
+    }
+  });
+}
+
 // Modal functionality
 const modal = document.getElementById('booking-modal');
 const modalOverlay = document.getElementById('modal-overlay');

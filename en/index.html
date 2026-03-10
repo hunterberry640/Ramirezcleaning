@@ -44,7 +44,11 @@
       "ratingValue": "4.9",
       "reviewCount": "200"
     },
-    "sameAs": ["https://www.facebook.com/share/18JkhNdg6q/?mibextid=wwXIfr"]
+    "sameAs": ["https://www.facebook.com/share/18JkhNdg6q/?mibextid=wwXIfr"],
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "17:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "16:00" }
+    ]
   }
   </script>
 
@@ -536,6 +540,14 @@
           <li><a href="https://www.facebook.com/share/18JkhNdg6q/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a></li>
         </ul>
       </div>
+      <div class="footer-hours">
+        <h4>Hours</h4>
+        <ul>
+          <li>Mon – Fri: 9:00 AM – 5:00 PM</li>
+          <li>Saturday: 9:00 AM – 4:00 PM</li>
+          <li>Sunday: Closed</li>
+        </ul>
+      </div>
     </div>
     <div class="footer-bottom">
       <div class="container">
@@ -582,6 +594,36 @@
           </select>
         </div>
         
+        <div class="form-row">
+          <div class="form-group">
+            <label for="preferred-date">Preferred Date</label>
+            <input type="date" id="preferred-date" name="preferred_date">
+          </div>
+          <div class="form-group">
+            <label for="preferred-time">Preferred Start Time</label>
+            <select id="preferred-time" name="preferred_time">
+              <option value="">Select a time...</option>
+              <option value="9:00 AM">9:00 AM</option>
+              <option value="9:30 AM">9:30 AM</option>
+              <option value="10:00 AM">10:00 AM</option>
+              <option value="10:30 AM">10:30 AM</option>
+              <option value="11:00 AM">11:00 AM</option>
+              <option value="11:30 AM">11:30 AM</option>
+              <option value="12:00 PM">12:00 PM</option>
+              <option value="12:30 PM">12:30 PM</option>
+              <option value="1:00 PM">1:00 PM</option>
+              <option value="1:30 PM">1:30 PM</option>
+              <option value="2:00 PM">2:00 PM</option>
+              <option value="2:30 PM">2:30 PM</option>
+              <option value="3:00 PM">3:00 PM</option>
+              <option value="3:30 PM">3:30 PM</option>
+              <option value="4:00 PM">4:00 PM</option>
+              <option value="4:30 PM">4:30 PM</option>
+              <option value="5:00 PM">5:00 PM</option>
+            </select>
+          </div>
+        </div>
+
         <div class="form-group">
           <label for="message">Message *</label>
           <textarea id="message" name="message" rows="4" placeholder="Tell me about your space, special requests, or any questions..." required></textarea>
