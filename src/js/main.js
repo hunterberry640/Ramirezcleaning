@@ -38,19 +38,53 @@ window.addEventListener('scroll', () => {
   navbar.classList.toggle('scrolled', window.scrollY > 50);
 }, { passive: true });
 
-// Before/After slider
-const baRange = document.getElementById('ba-range');
-const baAfter = document.getElementById('ba-after');
-const baHandle = document.getElementById('ba-handle');
+// Before/After sliders (multiple sliders support)
+const baSliders = document.querySelectorAll('.ba-slider');
 
-if (baRange && baAfter && baHandle) {
-  const updateSlider = () => {
-    const value = baRange.value;
-    baAfter.style.clipPath = `inset(0 0 0 ${value}%)`;
-    baHandle.style.left = `${value}%`;
-  };
-  baRange.addEventListener('input', updateSlider);
-  updateSlider();
+baSliders.forEach((slider) => {
+  const sliderId = slider.getAttribute('data-slider');
+  const baRange = slider.querySelector(`[data-range="${sliderId}"]`);
+  const baAfter = slider.querySelector(`[data-after="${sliderId}"]`);
+  const baHandle = slider.querySelector(`[data-handle="${sliderId}"]`);
+
+  if (baRange && baAfter && baHandle) {
+    const updateSlider = () => {
+      const value = baRange.value;
+      baAfter.style.clipPath = `inset(0 0 0 ${value}%)`;
+      baHandle.style.left = `${value}%`;
+    };
+    baRange.addEventListener('input', updateSlider);
+    updateSlider();
+  }
+});
+
+// Gallery carousel (Splide)
+const gallerySplideEl = document.getElementById('gallery-splide');
+
+if (gallerySplideEl && typeof Splide !== 'undefined') {
+  new Splide('#gallery-splide', {
+    type: 'loop',
+    perPage: 4,
+    perMove: 1,
+    gap: '20px',
+    pagination: false,
+    drag: true,
+    snap: true,
+    flickPower: 150,
+    flickMaxPages: 1,
+    autoplay: true,
+    interval: 3500,
+    pauseOnHover: true,
+    pauseOnFocus: true,
+    speed: 600,
+    easing: 'cubic-bezier(0.25, 1, 0.5, 1)',
+    arrows: true,
+    breakpoints: {
+      1024: { perPage: 3 },
+      768:  { perPage: 2, gap: '16px' },
+      480:  { perPage: 1, gap: '12px' },
+    },
+  }).mount();
 }
 
 // Modal functionality
