@@ -346,6 +346,20 @@ ul, ol { list-style: none; }
   z-index: 1;
   color: rgba(255, 255, 255, 0.7);
   animation: bounce 2s ease infinite;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  transition: color 0.3s ease, background 0.3s ease;
+}
+
+.hero-scroll-indicator:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.15);
 }
 
 @keyframes fadeSlideUp {
