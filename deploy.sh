@@ -1,11 +1,32 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Deploys the static site to S3 and invalidates the CloudFront cache.
-# Prerequisites: AWS CLI configured, Terraform already applied.
-
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 INFRA_DIR="$SCRIPT_DIR/infra"
+ENV_FILE="$INFRA_DIR/.env"
+
+if [ ! -f "$ENV_FILE" ]; then
+  echo "ERROR: $ENV_FILE not found."
+  echo "Create it with your AWS credentials:"
+  echo "  AWS_ACCESS_KEY_ID=your-key"
+  echo "  AWS_SECRET_ACCESS_KEY=your-secret"
+  exit 1
+fi
+
+source "$ENV_FILE"
+export AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY
+export AWS_SHARED_CREDENTIALS_FILE=/dev/null
+export AWS_CONFIG_FILE=/dev/null
+unset AWS_PROFILE AWS_SESSION_TOKEN AWS_SECURITY_TOKEN
+
+EXPECTED_ACCOUNT="454921778591"
+ACTUAL_ACCOUNT=$(aws sts get-caller-identity --query Account --output text)
+if [ "$ACTUAL_ACCOUNT" != "$EXPECTED_ACCOUNT" ]; then
+  echo "ERROR: WRONG AWS ACCOUNT! Expected $EXPECTED_ACCOUNT but got $ACTUAL_ACCOUNT"
+  echo "The credentials in $ENV_FILE belong to account $ACTUAL_ACCOUNT, not $EXPECTED_ACCOUNT."
+  exit 1
+fi
+echo "Confirmed: deploying to account $ACTUAL_ACCOUNT"
 
 # Get outputs from Terraform
 BUCKET=$(cd "$INFRA_DIR" && terraform output -raw s3_bucket_name)

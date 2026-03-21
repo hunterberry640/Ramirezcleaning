@@ -25,6 +25,16 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ env.AWS_REGION }}
 
+      - name: Verify AWS Account
+        run: |
+          ACTUAL=$(aws sts get-caller-identity --query Account --output text)
+          EXPECTED="454921778591"
+          if [ "$ACTUAL" != "$EXPECTED" ]; then
+            echo "::error::WRONG AWS ACCOUNT! Expected $EXPECTED but got $ACTUAL. Check your GitHub secrets."
+            exit 1
+          fi
+          echo "Confirmed: deploying to account $ACTUAL"
+
       - uses: hashicorp/setup-terraform@v3
         with:
           terraform_wrapper: false

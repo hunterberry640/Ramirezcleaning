@@ -19,15 +19,22 @@ User → Route 53 (DNS) → CloudFront (CDN + HTTPS) → S3 (Static Files)
 ## Prerequisites
 
 1. [Terraform](https://developer.hashicorp.com/terraform/install) installed (>= 1.5)
-2. [AWS CLI](https://aws.amazon.com/cli/) installed and configured (`aws configure`)
-3. Route 53 hosted zone already created for `ramirezcleaningservices.com`
+2. [AWS CLI](https://aws.amazon.com/cli/) installed
+3. `infra/.env` created with:
+   - `AWS_ACCESS_KEY_ID=...`
+   - `AWS_SECRET_ACCESS_KEY=...`
+   - Keys must belong to AWS account `454921778591`
+4. Route 53 hosted zone already created for `ramirezcleaningsvc.com`
 
 ## First-Time Setup
 
 ```bash
 cd infra
 
-# Initialize Terraform (downloads providers)
+# Load credentials + lock terraform wrapper to account 454921778591
+source .envrc
+
+# Initialize Terraform (downloads providers + validates account)
 terraform init
 
 # Preview what will be created
@@ -38,6 +45,17 @@ terraform apply
 ```
 
 Type `yes` when prompted. The ACM certificate validation and CloudFront distribution creation can take 5-15 minutes.
+
+If you open a new terminal, run `source .envrc` again before Terraform commands.
+
+### S3 bucket naming
+
+This setup does **not** require the S3 bucket name to equal your domain.
+By default, Terraform auto-generates a unique bucket name:
+
+- `<domain-with-dashes>-site-454921778591`
+
+If needed, you can override it with `site_bucket_name` in `terraform.tfvars`.
 
 ## Deploy Site Files
 

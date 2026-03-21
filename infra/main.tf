@@ -15,14 +15,22 @@ terraform {
   }
 }
 
+locals {
+  locked_aws_account_id    = "454921778591"
+  default_site_bucket_name = "${replace(var.domain_name, ".", "-")}-site-${local.locked_aws_account_id}"
+  site_bucket_name         = coalesce(var.site_bucket_name, local.default_site_bucket_name)
+}
+
 provider "aws" {
-  region = var.aws_region
+  region              = var.aws_region
+  allowed_account_ids = [local.locked_aws_account_id]
 }
 
 # ACM certificates for CloudFront must be in us-east-1
 provider "aws" {
-  alias  = "us_east_1"
-  region = "us-east-1"
+  alias               = "us_east_1"
+  region              = "us-east-1"
+  allowed_account_ids = [local.locked_aws_account_id]
 }
 
 # ---------------------------------------------------------------------------
@@ -38,7 +46,7 @@ resource "aws_route53_zone" "main" {
 # ---------------------------------------------------------------------------
 
 resource "aws_s3_bucket" "site" {
-  bucket = var.domain_name
+  bucket = local.site_bucket_name
 }
 
 resource "aws_s3_bucket_public_access_block" "site" {
@@ -77,10 +85,10 @@ resource "aws_s3_bucket_policy" "site" {
 # ---------------------------------------------------------------------------
 
 resource "aws_acm_certificate" "site" {
-  provider          = aws.us_east_1
-  domain_name       = var.domain_name
+  provider                  = aws.us_east_1
+  domain_name               = var.domain_name
   subject_alternative_names = ["*.${var.domain_name}"]
-  validation_method = "DNS"
+  validation_method         = "DNS"
 
   lifecycle {
     create_before_destroy = true
