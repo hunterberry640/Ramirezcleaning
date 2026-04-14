@@ -920,19 +920,25 @@ a.area-card-link:hover {
 
 .areas-cta a:hover { color: var(--color-primary-dark); }
 
-/* ===== BREADCRUMB ===== */
-.breadcrumb-bar {
-  background-color: var(--color-bg-alt);
-  padding: 16px 0;
-  border-bottom: 1px solid var(--color-border);
+/* ===== CITY HERO ===== */
+.city-hero {
   margin-top: 72px;
+  padding: 0 0 48px;
+  text-align: center;
+  background: linear-gradient(180deg, var(--color-bg-alt) 0%, var(--color-bg) 100%);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.breadcrumb-nav {
+  padding: 14px 0 24px;
+  text-align: left;
 }
 
 .breadcrumb {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: var(--color-text-light);
 }
 
@@ -940,12 +946,6 @@ a.area-card-link:hover {
 .breadcrumb li + li::before { content: '/'; color: var(--color-border); }
 .breadcrumb a { color: var(--color-primary); font-weight: 500; }
 .breadcrumb a:hover { text-decoration: underline; }
-
-/* ===== CITY HERO ===== */
-.city-hero {
-  padding: 60px 0 48px;
-  text-align: center;
-}
 
 .city-hero-title {
   font-size: clamp(2rem, 5vw, 3rem);

@@ -32,10 +32,14 @@ navLinks.querySelectorAll('a').forEach((link) => {
   });
 });
 
-// Navbar background on scroll
+// Navbar background on scroll (skip on pages without a hero, where navbar is always solid)
 const navbar = document.getElementById('navbar');
+const alwaysScrolled = !document.querySelector('.hero');
+if (alwaysScrolled) navbar.classList.add('scrolled');
 window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 50);
+  if (!alwaysScrolled) {
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+  }
 }, { passive: true });
 
 // Before/After sliders (multiple sliders support)
