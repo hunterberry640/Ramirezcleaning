@@ -21,6 +21,9 @@
   <link rel="alternate" hreflang="es" href="https://www.ramirezcleaningservices.com/es/" />
   <link rel="alternate" hreflang="x-default" href="https://www.ramirezcleaningservices.com/en/" />
 
+  <!-- Preload hero image for LCP -->
+  <link rel="preload" as="image" href="../src/assets/lotus-design-n-print-_AK42TQRyCw-unsplash.webp" />
+
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Ramirez Cleaning and Detailing Service | House Cleaning in Dallas-Fort Worth, TX" />
@@ -42,7 +45,7 @@
     "@context": "https://schema.org",
     "@type": ["LocalBusiness", "CleaningService"],
     "name": "Ramirez Cleaning and Detailing Service",
-    "description": "Professional house cleaning and maid service in Dallas-Fort Worth, TX. Residential and commercial cleaning — 5-star rated.",
+    "description": "Family-owned house cleaning and maid service in Dallas-Fort Worth, TX. Residential and commercial cleaning proudly serving DFW neighborhoods with personal attention and consistent quality.",
     "url": "https://www.ramirezcleaningservices.com",
     "telephone": "+1-214-554-2902",
     "priceRange": "$$",
@@ -67,7 +70,32 @@
       { "@type": "City", "name": "Plano", "sameAs": "https://en.wikipedia.org/wiki/Plano,_Texas" },
       { "@type": "City", "name": "Frisco", "sameAs": "https://en.wikipedia.org/wiki/Frisco,_Texas" },
       { "@type": "City", "name": "Irving", "sameAs": "https://en.wikipedia.org/wiki/Irving,_Texas" },
-      { "@type": "City", "name": "Lewisville", "sameAs": "https://en.wikipedia.org/wiki/Lewisville,_Texas" }
+      { "@type": "City", "name": "Lewisville", "sameAs": "https://en.wikipedia.org/wiki/Lewisville,_Texas" },
+      { "@type": "City", "name": "Richardson", "sameAs": "https://en.wikipedia.org/wiki/Richardson,_Texas" },
+      { "@type": "City", "name": "Highland Park", "sameAs": "https://en.wikipedia.org/wiki/Highland_Park,_Texas" },
+      { "@type": "City", "name": "McKinney", "sameAs": "https://en.wikipedia.org/wiki/McKinney,_Texas" },
+      { "@type": "City", "name": "Arlington", "sameAs": "https://en.wikipedia.org/wiki/Arlington,_Texas" }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "reviewCount": "2",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "author": { "@type": "Person", "name": "Kennedy T." },
+        "reviewBody": "They did a great job! We quickly booked them for the next cleaning!"
+      },
+      {
+        "@type": "Review",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "author": { "@type": "Person", "name": "Kenton A." },
+        "reviewBody": "Amazing work! Very professional, put a list together for her and she will get it done. I get mine done once a month and prices are fair. HIGHLY RECOMMEND!!"
+      }
     ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
@@ -129,8 +157,8 @@
       <div class="hero-overlay"></div>
       <div class="container hero-content">
         <p class="hero-label">Professional House Cleaning &amp; Maid Service in DFW</p>
-        <h1 class="hero-title">A Spotless Home,<br />Every Time</h1>
-        <p class="hero-subtitle">Trusted house cleaning and maid service in Dallas-Fort Worth. Let me handle the mess so you can enjoy the rest.</p>
+        <h1 class="hero-title">House Cleaning &amp; Maid Service<br />in Dallas-Fort Worth, TX</h1>
+        <p class="hero-subtitle">Family-owned and operated. Trusted house cleaning across the DFW metroplex — let me handle the mess so you can enjoy the rest.</p>
         <a href="#cta-banner" class="btn btn-accent btn-lg" id="hero-quote-btn">Get a Free Quote</a>
       </div>
       <a href="#trust-bar" class="hero-scroll-indicator" aria-label="Scroll to next section">
@@ -146,8 +174,8 @@
           <span>5-Star Rated</span>
         </div>
         <div class="trust-item">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
-          <span>Quality Products</span>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span>Family-Owned &amp; Local</span>
         </div>
         <div class="trust-item">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
@@ -478,7 +506,7 @@
             <blockquote>&ldquo;They did a great job! We quickly booked them for the next cleaning!&rdquo;</blockquote>
             <div class="review-author">
               <strong>Kennedy T.</strong>
-              <span>Dallas, TX</span>
+              <span>Verified Customer</span>
             </div>
           </div>
           <div class="review-card scroll-reveal">
@@ -492,7 +520,7 @@
             <blockquote>&ldquo;Amazing work! Very professional, put a list together for her and she will get it done. I get mine done once a month and prices are fair. HIGHLY RECOMMEND!!&rdquo;</blockquote>
             <div class="review-author">
               <strong>Kenton A.</strong>
-              <span>Dallas, TX</span>
+              <span>Verified Customer</span>
             </div>
           </div>
         </div>
@@ -506,36 +534,56 @@
         <h2 class="section-title scroll-reveal">Service Areas in Dallas-Fort Worth</h2>
         <p class="section-subtitle scroll-reveal">Proudly providing house cleaning and maid service across the DFW metroplex.</p>
         <div class="areas-grid scroll-reveal">
-          <div class="area-card">
+          <a href="../en/areas/dallas/" class="area-card area-card-link">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             <strong>Dallas</strong>
-            <p>House cleaning and maid service in Dallas, including Oak Cliff, Uptown, Deep Ellum, and surrounding neighborhoods.</p>
-          </div>
-          <div class="area-card">
+            <p>Oak Cliff, Uptown, Deep Ellum, Bishop Arts, Lakewood and surrounding neighborhoods.</p>
+          </a>
+          <a href="../en/areas/fort-worth/" class="area-card area-card-link">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             <strong>Fort Worth</strong>
-            <p>Professional cleaning service in Fort Worth — residential and commercial cleaning available throughout the city.</p>
-          </div>
-          <div class="area-card">
+            <p>Southside, Cultural District, TCU area, Camp Bowie and throughout the city.</p>
+          </a>
+          <a href="../en/areas/plano/" class="area-card area-card-link">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             <strong>Plano</strong>
-            <p>Reliable house cleaning in Plano, TX. Regular cleanings, deep cleans, and move-in/out services.</p>
-          </div>
-          <div class="area-card">
+            <p>Legacy West, Shops at Legacy, Downtown Plano and nearby communities.</p>
+          </a>
+          <a href="../en/areas/frisco/" class="area-card area-card-link">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             <strong>Frisco</strong>
-            <p>Trusted maid service in Frisco and nearby communities. Get a spotless home every time.</p>
-          </div>
-          <div class="area-card">
+            <p>Stonebriar, The Star, Frisco Square and surrounding neighborhoods.</p>
+          </a>
+          <a href="../en/areas/irving/" class="area-card area-card-link">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             <strong>Irving</strong>
-            <p>Quality cleaning service in Irving, TX — homes, apartments, and offices across the city.</p>
-          </div>
-          <div class="area-card">
+            <p>Las Colinas, Valley Ranch and homes across Irving.</p>
+          </a>
+          <a href="../en/areas/lewisville/" class="area-card area-card-link">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             <strong>Lewisville</strong>
-            <p>Serving Lewisville with professional house cleaning and detail-oriented maid service.</p>
-          </div>
+            <p>Old Town, Castle Hills, Vista Ridge and throughout Lewisville.</p>
+          </a>
+          <a href="../en/areas/richardson/" class="area-card area-card-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <strong>Richardson</strong>
+            <p>Telecom Corridor, Canyon Creek, Heights Park and nearby areas.</p>
+          </a>
+          <a href="../en/areas/highland-park/" class="area-card area-card-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <strong>Highland Park</strong>
+            <p>Highland Park Village, Turtle Creek, Armstrong Pkwy and surrounding streets.</p>
+          </a>
+          <a href="../en/areas/mckinney/" class="area-card area-card-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <strong>McKinney</strong>
+            <p>Historic Downtown, Craig Ranch, Stonebridge Ranch and nearby neighborhoods.</p>
+          </a>
+          <a href="../en/areas/arlington/" class="area-card area-card-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <strong>Arlington</strong>
+            <p>Entertainment District, Dalworthington Gardens, Viridian and throughout Arlington.</p>
+          </a>
         </div>
         <p class="areas-cta scroll-reveal">Don&rsquo;t see your area? <a href="#cta-banner">Contact me</a> &mdash; I serve most of the Dallas-Fort Worth metroplex!</p>
       </div>
@@ -560,7 +608,7 @@
     <div class="container footer-inner">
       <div class="footer-brand">
         <strong>Ramirez Cleaning and Detailing Service</strong>
-        <p>Professional house cleaning and maid service you can count on — proudly serving the Dallas-Fort Worth area.</p>
+        <p>A family-owned house cleaning service proudly serving the Dallas-Fort Worth area. Direct communication, consistent quality, and a personal touch every visit.</p>
       </div>
       <div class="footer-links">
         <h4>Quick Links</h4>

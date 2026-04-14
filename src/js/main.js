@@ -177,10 +177,22 @@ const bookNowBtn = document.getElementById('book-now-btn');
 const heroQuoteBtn = document.getElementById('hero-quote-btn');
 const navQuoteBtn = document.getElementById('nav-quote-btn');
 
+const ctaButtons = {
+  'hero-quote-btn': 'hero_cta',
+  'nav-quote-btn': 'nav_cta',
+  'book-now-btn': 'bottom_cta',
+};
+
 [bookNowBtn, heroQuoteBtn, navQuoteBtn].forEach(btn => {
   if (btn) {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
+      if (typeof gtag === 'function') {
+        gtag('event', 'cta_click', {
+          button_id: btn.id,
+          button_label: ctaButtons[btn.id] || btn.id,
+        });
+      }
       openModal();
     });
   }
@@ -209,6 +221,12 @@ if (bookingForm) {
       const data = await response.json();
       
       if (response.ok && data.success) {
+        if (typeof gtag === 'function') {
+          gtag('event', 'form_submission', {
+            form_id: 'booking-form',
+            service_type: formData.get('service') || 'not_selected',
+          });
+        }
         if (formStatus) {
           // Check if page is in Spanish
           const isSpanish = document.documentElement.lang === 'es';
